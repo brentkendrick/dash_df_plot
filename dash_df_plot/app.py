@@ -1,9 +1,3 @@
-# This must come before importing any components that use Redis
-# so that the REDIS_URL is loaded from .env
-from dash_df_plot.config.settings import (  # isort:skip
-    ASSETS_PATH,
-    DASHURLS,
-)
 import uuid
 
 import dash_bootstrap_components as dbc
@@ -29,18 +23,18 @@ df = pd.DataFrame(
 fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
 
 
-def create_app():
+def create_app(asset_path, dash_url):
     """Using Factory Pattern to instantiate app.  Since we want relative imports to work
     a run.py in the project root is implemented.
     """
     server = Flask(__name__)
 
-    url_base = DASHURLS["fptrace"]
+    url_base = dash_url
 
     app = Dash(
         server=server,  # type: ignore
         url_base_pathname=url_base,
-        assets_folder=ASSETS_PATH,
+        assets_folder=asset_path,
         external_stylesheets=[
             dbc.themes.SPACELAB,
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css",
