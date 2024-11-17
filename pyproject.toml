@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dash_df_plot"
-version = "0.0.10"
+version = "0.0.11"
 description = "dash_df_plot"
 readme = "README.md"
 requires-python = ">=3.5"
@@ -26,23 +26,22 @@ dependencies = [
     "netcdf4>=1.7.1.post2",
     "openpyxl",
     "pythonnet",
-    "fpbiolib>=0.5.15",  # from github
+    "fpbiolib>=0.5.15"
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: BSD License",
     "Operating System :: OS Independent",
-    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Chemistry"
 ]
 
 [tool.setuptools]
-packages = ["dash_df_plot"]  # Explicitly list packages to include
-include-package-data = true  # Ensures package data is included
+include-package-data = true
 
 [tool.setuptools.package-data]
 dash_df_plot = ["pyproject.toml"]
 
-# Consolidated this section:
 [tool.setuptools.packages.find]
-exclude = ["tests"]  # Exclude test directories
+where = ["."]
+exclude = ["tests"]
