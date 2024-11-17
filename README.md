@@ -16,7 +16,7 @@ setuptools to package it.
 Clone or download the repo.
 
 ```bash
-git clone https://github.com/brentkendrick/fptrace.git
+git clone https://github.com/brentkendrick/dash_df_plot.git
 ```
 
 ## Install dependencies either locally (for select git repos), or specified versions
