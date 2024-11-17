@@ -1,5 +1,12 @@
 from pathlib import Path
 import tomllib
+import importlib.resources
+
+# Access pyproject.toml as a resource
+with importlib.resources.open_text("your_package_name", "pyproject.toml") as f:
+    pyproject_content = f.read()
+
+print(pyproject_content)
 
 # Locate the directory where this module resides
 module_dir = Path(__file__).parent
