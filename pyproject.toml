@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "dash_df_plot"
 
-version = "0.0.7"
+version = "0.0.8"
 # Changes since previous version:
 # Updated path to version location.
 
@@ -39,6 +39,9 @@ classifiers = [
         "Operating System :: OS Independent",
         "Topic :: Scientific/Engineering :: Chemistry",
 ]
+
+[tool.setuptools.package-data]
+dash_df_plot = ["pyproject.toml"]
 
 [project.optional-dependencies]
 # You can add optional dependencies here if needed later.

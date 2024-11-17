@@ -313,7 +313,7 @@ go to fptrace directory of this app and run:
 celery -A app.celery_app worker --loglevel=INFO --concurrency=2
 ```
 
-project/
+dash_df_plot/
 ├── run.py
 ├── dash_df_plot/
 │ ├── **init**.py
