@@ -1,14 +1,10 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "dash_df_plot"
-
-version = "0.0.8"
-# Changes since previous version:
-# Updated path to version location.
-
+version = "0.0.9"
 description = "dash_df_plot"
 readme = "README.md"
 requires-python = ">=3.5"
@@ -33,18 +29,25 @@ dependencies = [
     "fpbiolib>=0.5.15",  # from github
 ]
 classifiers = [
-        "Development Status :: 4 - Beta",
-        "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: BSD License",
-        "Operating System :: OS Independent",
-        "Topic :: Scientific/Engineering :: Chemistry",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Chemistry",
 ]
+
+[tool.setuptools]
+packages = ["dash_df_plot"]  # Explicitly list packages to include
 
 [tool.setuptools.package-data]
 dash_df_plot = ["pyproject.toml"]
 
-[project.optional-dependencies]
-# You can add optional dependencies here if needed later.
+[tool.setuptools.include-package-data]
+# Ensures that any files specified in MANIFEST.in are included
+include-package-data = true
 
 [tool.setuptools.packages.find]
-exclude = ["tests"]
+exclude = ["tests"]  # Exclude test directories
+
+[project.optional-dependencies]
+# Add optional dependencies if needed.
