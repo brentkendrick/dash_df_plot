@@ -1,0 +1,29 @@
+dash==2.18.0
+gunicorn==23.0.0
+python-dotenv==1.0.1
+dash-bootstrap-components==1.6.0
+dash_mantine_components==0.14.4
+dash-daq==0.5.0
+celery==5.4.0
+redis==5.0.8
+fakeredis==2.24.1
+pyarrow==17.0.0
+plotly==5.24.0
+
+numpy==2.1.1
+pandas==2.2.2
+
+toml==0.10.2
+
+
+# Github installable libraries 
+# (requires git access token, will prompt during pip install)
+fpbiolib @ git+https://github.com/brentkendrick/fpbiolib@v0.5.15
+# chemlabparser @ git+https://<GH_SCOPED_TOKEN>@github.com/brentkendrick/chemlabparser@v0.5.19
+
+
+# For local, editable use of libraries
+# -e /Users/brent/code/lib/fpbiolib
+# -e /Users/brent/code/parsers/chemlabparser
+
+

@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dash_df_plot"
+
+version = "0.0.1"
+# Changes since previous version:
+# Updated path to version location.
+
+description = "dash_df_plot"
+readme = "README.md"
+requires-python = ">=3.5"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Brent Kendrick", email = "brent.kendrick@fp-biopharma.com"}
+]
+dependencies = [
+    "numpy>=2.1.1",
+    "pandas>=2.2.2",
+    "dash_daq>=0.5.0",
+    "dash>=2.1.4",
+    "dash-bootstrap-components>=1.0.0",
+    "multiprocess>=0.70",
+    "psutil>=5.8.0",
+    "redis>=3.5.3",
+    "celery>=5.2.1",
+    "jsonpickle>=2.0.0",
+    "netcdf4>=1.7.1.post2",
+    "openpyxl",
+    "pythonnet",
+    "fpbiolib>=0.5.15",  # from github
+]
+classifiers = [
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: BSD License",
+        "Operating System :: OS Independent",
+        "Topic :: Scientific/Engineering :: Chemistry",
+]
+
+[project.optional-dependencies]
+# You can add optional dependencies here if needed later.
+
+[tool.setuptools.packages.find]
+exclude = ["tests"]
