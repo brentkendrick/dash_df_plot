@@ -8,6 +8,7 @@ from dash import Dash, dcc, html
 from flask import Flask
 from .utils import reset_df_stores
 from .ids import ids
+from ._version import __version__
 
 
 # *** CREATE APP ***
@@ -23,7 +24,7 @@ df = pd.DataFrame(
 fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
 
 
-def create_app(asset_path, dash_url):
+def create_app(dash_url):
     """Using Factory Pattern to instantiate app.  Since we want relative imports to work
     a run.py in the project root is implemented.
     """
@@ -34,7 +35,6 @@ def create_app(asset_path, dash_url):
     app = Dash(
         server=server,  # type: ignore
         url_base_pathname=url_base,
-        assets_folder=asset_path,
         external_stylesheets=[
             dbc.themes.SPACELAB,
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css",
@@ -47,7 +47,7 @@ def create_app(asset_path, dash_url):
     app.layout = html.Div(
         [
             html.H1(children="Hello Dash"),
-            html.Div(children="A simple web app with Dash."),
+            html.Div(children=f"A simple web app with Dash. Version: {__version__}"),
             dcc.Graph(id="example-graph", figure=fig),
         ],
         className="grid-container",
