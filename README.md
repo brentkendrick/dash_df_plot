@@ -312,3 +312,18 @@ go to fptrace directory of this app and run:
 ```bash
 celery -A app.celery_app worker --loglevel=INFO --concurrency=2
 ```
+
+project/
+├── run.py
+├── dash_df_plot/
+│ ├── **init**.py
+│ ├── app.py
+│ ├── ids.py
+│ ├── utils.py
+| ├── \_version.py
+│ └── config/
+│ ├── **init**.py
+│ ├── settings.py
+│ └── gunicorn.py
+├── pyproject.toml
+└── requirements.txt

@@ -1,17 +1,18 @@
-import toml
 from pathlib import Path
+import tomllib
 
-# Get the directory of the root dir where pyproject.toml lives
-module_dir = Path(__file__).parent.parent
+# Determine the path to pyproject.toml
+current_file = Path(__file__).resolve()
+project_root = current_file.parents[1]  # Go two levels up to the project root
+pyproject_path = project_root / "pyproject.toml"
 
-# Load the pyproject.toml file
-pyproject_path = module_dir / "pyproject.toml"
-if not pyproject_path.exists():
-    raise FileNotFoundError(f"Could not find pyproject.toml at {pyproject_path}")
-
-with pyproject_path.open("r") as f:
-    pyproject_data = toml.load(f)
-
+# Read and parse the pyproject.toml file
+if pyproject_path.exists():
+    with pyproject_path.open("rb") as pyproject_file:  # tomllib requires binary mode
+        pyproject_data = tomllib.load(pyproject_file)
+    # print(pyproject_data)
+else:
+    raise FileNotFoundError(f"pyproject.toml not found at {pyproject_path}")
 # Extract the version information
 version = pyproject_data["project"]["version"]
 
