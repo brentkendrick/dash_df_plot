@@ -18,12 +18,12 @@ toml==0.10.2
 
 # Github installable libraries 
 # (requires git access token, will prompt during pip install)
-fpbiolib @ git+https://github.com/brentkendrick/fpbiolib@v0.5.15
+# fpbiolib @ git+https://github.com/brentkendrick/fpbiolib@v0.5.15
 # chemlabparser @ git+https://<GH_SCOPED_TOKEN>@github.com/brentkendrick/chemlabparser@v0.5.19
 
 
 # For local, editable use of libraries
-# -e /Users/brent/code/lib/fpbiolib
+-e /Users/brent/code/lib/fpbiolib
 # -e /Users/brent/code/parsers/chemlabparser
 
 

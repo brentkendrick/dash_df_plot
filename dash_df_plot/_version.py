@@ -1,6 +1,5 @@
-
 # Extract the version information
-version = "0.5.2"
+version = "0.0.2"
 
-__app_name__ = "FP-Bio Trace Processing"
+__app_name__ = "FP-Bio Dash DF Plot"
 __version__ = version

@@ -39,6 +39,7 @@ r = Redis.from_url(REDIS_URL)
 
 try:
     r.ping()
+    print("Redis connection active!")
 except Exception:
     # Without a broker and backend, no celery
     warnings.warn(

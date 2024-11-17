@@ -113,13 +113,17 @@ brew services start redis
 go to root directory of this app and run:
 
 ```bash
-python fptrace/app.py
+python run.py
 ```
+
+(note: trying to run the app with `python dash_df_plot/app.py` will prevent relative imports to work,
+because when you run a file directly, its context changes, and it is no longer treated as part of the package.
+However, you can run it as a module with `python -m dash_df_plot.app` )
 
 Or, with gunicorn:
 
 ```bash
-gunicorn -c "python:fptrace.config.gunicorn" 'fptrace.app:server'
+gunicorn -c "python:dash_df_plot.config.gunicorn" "run:server"
 ```
 
 ## With Docker
