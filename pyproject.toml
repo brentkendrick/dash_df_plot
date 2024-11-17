@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dash_df_plot"
-version = "0.0.11"
+version = "0.0.12"
 description = "dash_df_plot"
 readme = "README.md"
 requires-python = ">=3.5"
