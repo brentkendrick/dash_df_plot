@@ -9,6 +9,31 @@ from flask import Flask
 from .utils import reset_df_stores, __version__
 from .ids import ids
 
+import warnings
+from redis import Redis
+
+# This must come before importing any components that use Redis
+# so that the REDIS_URL is loaded from .env
+from .config.settings import REDIS_URL  # isort:skip
+
+
+def check_redis():
+    """Run a check on redis connection."""
+    r = Redis.from_url(REDIS_URL)
+
+    try:
+        r.ping()
+        print("Redis connection active!")
+    except Exception:
+        # Without a broker and backend, no celery
+        warnings.warn(
+            "Redis connection failed: No redis storage.",
+            category=RuntimeWarning,
+        )
+
+
+check_redis()
+
 # *** CREATE APP ***
 # Sample data
 df = pd.DataFrame(
@@ -28,11 +53,9 @@ def create_app(dash_url):
     """
     server = Flask(__name__)
 
-    url_base = dash_url
-
     app = Dash(
         server=server,  # type: ignore
-        url_base_pathname=url_base,
+        url_base_pathname=dash_url,
         external_stylesheets=[
             dbc.themes.SPACELAB,
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css",

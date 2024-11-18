@@ -4,11 +4,9 @@ If not running Docker then explicitely load dot_env since we want to run the app
 """
 
 import os
-import warnings
 from pathlib import Path
 
 from dotenv import load_dotenv
-from redis import Redis
 
 # Enable use of .env variables
 load_dotenv()
@@ -25,25 +23,8 @@ DOCUMENTATION_PATH = dir_name.parent / "doc"
 REDIS_URL = os.getenv("REDIS_URL", "redis://redis:6379/0")
 REDIS_HOST = os.getenv("REDIS_HOST", "redis")
 
-# Dash app urls
-DASHURLS = {
-    "fptrace": "/fptrace/",
-}
-
 FPTRACE_BASE_URI = os.getenv("FPTRACE_BASE_URI", "/")
 FPTRACE_PORT = os.getenv("FPTRACE_PORT", "5000")
 SERVER_NAME = os.getenv(
     "SERVER_NAME", "localhost:{0}".format(os.getenv("PORT", "8000"))
 )
-
-r = Redis.from_url(REDIS_URL)
-
-try:
-    r.ping()
-    print("Redis connection active!")
-except Exception:
-    # Without a broker and backend, no celery
-    warnings.warn(
-        "Redis connection failed: No redis storage.",
-        category=RuntimeWarning,
-    )

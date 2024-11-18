@@ -1,6 +1,6 @@
 [project]
 name = "dash_df_plot"
-version = "0.0.43" # Refactor version import to avoid circular imports from app down the road.
+version = "0.0.44" # Refactor settings to move redis check to app.py
 description = "dash_df_plot"
 readme = "README.md"
 requires-python = ">=3.5"
