@@ -1,1 +1,4 @@
 include dash_df_plot/config/*
+
+# Include the entire assets folder
+recursive-include dash_df_plot/assets *
