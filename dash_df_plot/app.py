@@ -8,8 +8,9 @@ from dash import Dash, dcc, html
 from flask import Flask
 from .utils import reset_df_stores
 from .ids import ids
-from ._version import __version__
+from importlib.metadata import version
 
+__version__ = version("dash_df_plot")
 
 # *** CREATE APP ***
 # Sample data

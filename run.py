@@ -6,7 +6,7 @@ from dash_df_plot.config.settings import (  # isort:skip
 )
 from dash_df_plot.app import create_app
 
-app = create_app(ASSETS_PATH, DASHURLS["fptrace"])  # Create the Dash app
+app = create_app(DASHURLS["fptrace"])  # Create the Dash app
 
 server = app.server  # Expose the Flask server
 

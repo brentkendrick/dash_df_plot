@@ -1,2 +1,0 @@
-include pyproject.toml
-recursive-include dash_df_plot csv/*
