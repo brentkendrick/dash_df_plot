@@ -2,6 +2,9 @@ import pandas as pd
 from fpbiolib.df_storage import redis_store
 
 from .ids import ids
+from importlib.metadata import version
+
+__version__ = version("dash_df_plot")
 
 
 def reset_df_stores(session_id=""):

@@ -1,5 +1,3 @@
-# from dash_df_plot.config.settings import ASSETS_PATH
-
 import uuid
 
 import dash_bootstrap_components as dbc
@@ -8,11 +6,8 @@ import plotly.express as px
 
 from dash import Dash, dcc, html
 from flask import Flask
-from .utils import reset_df_stores
+from .utils import reset_df_stores, __version__
 from .ids import ids
-from importlib.metadata import version
-
-__version__ = version("dash_df_plot")
 
 # *** CREATE APP ***
 # Sample data
@@ -38,7 +33,6 @@ def create_app(dash_url):
     app = Dash(
         server=server,  # type: ignore
         url_base_pathname=url_base,
-        # assets_folder=ASSETS_PATH,
         external_stylesheets=[
             dbc.themes.SPACELAB,
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css",

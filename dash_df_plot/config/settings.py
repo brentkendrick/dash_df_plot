@@ -10,6 +10,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from redis import Redis
 
+# Enable use of .env variables
 load_dotenv()
 
 # returns the directory where this file resides
