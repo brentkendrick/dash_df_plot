@@ -6,33 +6,33 @@ import plotly.express as px
 
 from dash import Dash, dcc, html
 from flask import Flask
-from .utils import reset_df_stores, __version__
+from .utils import __version__
 from .ids import ids
 
-import warnings
-from redis import Redis
+# import warnings
+# from redis import Redis
 
 # This must come before importing any components that use Redis
 # so that the REDIS_URL is loaded from .env
-from .config.settings import REDIS_URL  # isort:skip
+# from .config.settings import REDIS_URL  # isort:skip
 
 
-def check_redis():
-    """Run a check on redis connection."""
-    r = Redis.from_url(REDIS_URL)
+# def check_redis():
+#     """Run a check on redis connection."""
+#     r = Redis.from_url(REDIS_URL)
 
-    try:
-        r.ping()
-        print("Redis connection active!")
-    except Exception:
-        # Without a broker and backend, no celery
-        warnings.warn(
-            "Redis connection failed: No redis storage.",
-            category=RuntimeWarning,
-        )
+#     try:
+#         r.ping()
+#         print("Redis connection active!")
+#     except Exception:
+#         # Without a broker and backend, no celery
+#         warnings.warn(
+#             "Redis connection failed: No redis storage.",
+#             category=RuntimeWarning,
+#         )
 
 
-check_redis()
+# check_redis()
 
 # *** CREATE APP ***
 # Sample data
@@ -63,7 +63,7 @@ def create_app(dash_url):
     )
 
     session_id = str(uuid.uuid4())
-    reset_df_stores(session_id)
+    # reset_df_stores(session_id)
 
     app.layout = html.Div(
         [
