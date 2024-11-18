@@ -1,6 +1,6 @@
 [project]
 name = "dash_df_plot"
-version = "0.0.37" # Update assets import
+version = "0.0.38" # Update setuptools instructions
 description = "dash_df_plot"
 readme = "README.md"
 requires-python = ">=3.5"
@@ -33,7 +33,5 @@ classifiers = [
 ]
 
 [tool.setuptools]
-packages = ['dash_df_plot']
-
-[tool.setuptools.package-data]
-dash_df_plot = ['pyproject.toml', 'csv/*']
+packages = ["find:"]
+include-package-data = true
