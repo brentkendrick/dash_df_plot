@@ -1,4 +1,4 @@
-from .config.settings import ASSETS_PATH
+from dash_df_plot.config.settings import ASSETS_PATH
 
 import uuid
 
