@@ -314,14 +314,13 @@ celery -A app.celery_app worker --loglevel=INFO --concurrency=2
 ```
 
 dash_df_plot/
-├── run.py
 ├── dash_df_plot/
 │ ├── **init**.py
 │ ├── app.py
 │ ├── ids.py
 │ ├── utils.py
-| ├── \_version.py
 │ └── config/
+│ └── assets/
 │ ├── **init**.py
 │ ├── settings.py
 │ └── gunicorn.py
