@@ -8,7 +8,6 @@ from dash import Dash, dcc, html
 
 from dash_df_plot.config.settings import ASSETS_PATH
 
-print("ASSETS_PATH: ", ASSETS_PATH)
 # from flask import Flask
 from dash_df_plot.utils import __version__
 from dash_df_plot.ids import ids
@@ -58,6 +57,7 @@ def create_app(dash_url):
     a run.py in the project root is implemented.
     """
     # server = Flask(__name__)
+    print("ASSETS_PATH: ", ASSETS_PATH)
 
     app = Dash(
         # server=server,  # type: ignore
