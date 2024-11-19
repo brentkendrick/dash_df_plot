@@ -6,36 +6,36 @@ import plotly.express as px
 
 from dash import Dash, dcc, html
 
-from dash_df_plot.config.settings import ASSETS_PATH
+from dash_df_plot.config.settings import REDIS_URL
 
 # from flask import Flask
 from dash_df_plot.utils import __version__
 from dash_df_plot.ids import ids
 
-# import warnings
-# from redis import Redis
+import warnings
+from redis import Redis
 
 # This must come before importing any components that use Redis
 # so that the REDIS_URL is loaded from .env
 # from .config.settings import REDIS_URL  # isort:skip
 
 
-# def check_redis():
-#     """Run a check on redis connection."""
-#     r = Redis.from_url(REDIS_URL)
+def check_redis():
+    """Run a check on redis connection."""
+    r = Redis.from_url(REDIS_URL)
 
-#     try:
-#         r.ping()
-#         print("Redis connection active!")
-#     except Exception:
-#         # Without a broker and backend, no celery
-#         warnings.warn(
-#             "Redis connection failed: No redis storage.",
-#             category=RuntimeWarning,
-#         )
+    try:
+        r.ping()
+        print("Redis connection active!")
+    except Exception:
+        # Without a broker and backend, no celery
+        warnings.warn(
+            "Redis connection failed: No redis storage.",
+            category=RuntimeWarning,
+        )
 
 
-# check_redis()
+check_redis()
 
 # *** CREATE APP ***
 # Sample data
@@ -57,12 +57,12 @@ def create_app(dash_url):
     a run.py in the project root is implemented.
     """
     # server = Flask(__name__)
-    print("ASSETS_PATH: ", ASSETS_PATH)
+    # print("ASSETS_PATH: ", ASSETS_PATH)
 
     app = Dash(
         # server=server,  # type: ignore
         url_base_pathname=dash_url,
-        assets_folder=ASSETS_PATH,
+        # assets_folder=ASSETS_PATH,
         external_stylesheets=[
             dbc.themes.SPACELAB,
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css",
