@@ -21,6 +21,10 @@ ASSETS_PATH = str(dir_name.parent / "assets")
 DOCUMENTATION_PATH = dir_name.parent / "doc"
 # Redis.
 REDIS_URL = os.getenv("REDIS_URL", "redis://redis:6379/0")
+# Ensure environment variables are accessible globally via os.environ
+# This step is already handled by `load_dotenv()` but ensures clarity.
+os.environ["REDIS_URL"] = REDIS_URL
+
 REDIS_HOST = os.getenv("REDIS_HOST", "redis")
 
 FPTRACE_BASE_URI = os.getenv("FPTRACE_BASE_URI", "/")
