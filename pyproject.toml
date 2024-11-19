@@ -1,6 +1,6 @@
 [project]
 name = "dash_df_plot"
-version = "0.0.48" # app assets path for package functionality
+version = "0.0.49" # app assets path for package functionality
 description = "dash_df_plot"
 readme = "README.md"
 requires-python = ">=3.5"
